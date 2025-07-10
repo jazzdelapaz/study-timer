@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Study-Timer</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="function.js" defer></script>
+  </head>
+  <body>
+    <!-- Audio Files -->
+    <audio id="clickSound" src="../assets/sounds/413310__tieswijnen__select.mp3"></audio>
+
+    <!-- Main Window -->
+    <div id="indexBG"></div>
+    <div id="titlebar">
+      <div id="drag-region">Study-Timer</div>
+      <div id="window-buttons">
+        <button id="minimize"></button>
+        <button id="close"></button>
+      </div>
+    </div>
+    <div>
+      <h1>YOU GOT THIS!</h1>
+      <h3>What's the goal for today?</h6>
+    </div>
+    
+    <!-- Mode Selection -->
+    <div id="modeButtons">
+      <button id="qr" onclick="modeSelection('qr')">Quick review<br><span>20 min</span></button>
+      <button id="inDepth" onclick="modeSelection('inDepth')">In-Depth<br><span>1 hr</span></button>
+      <button id="lockIn" onclick="modeSelection()">LOCK IN!<br><span>2 hrs</span></button>
+    </div>
+    <div id="froggy">
+      <img id="froggy-image" src="../assets/images/Sprite-0002.gif" width="64px" height="64px">
+    </div>
+    <script>
+
+      // Button's 'click' audio when interacted with
+      const buttons = document.querySelectorAll('button');
+      const audio = document.getElementById('clickSound');
+
+      buttons.forEach(buttons => {
+        buttons.addEventListener('click', (e) => {
+          audio.currentTime = 0;
+          audio.play();
+        });
+      });
+
+
+    </script>
+  </body>
+</html>

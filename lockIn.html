@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Study-Timer</title>
+    <link rel="stylesheet" href="index.css" />
+    <script src="function.js" defer></script>
+  </head>
+  <body>
+    <!-- Audio Files -->
+    <audio id="clickSound" src="../assets/sounds/413310__tieswijnen__select.mp3"></audio>
+    <audio id="alarmSound" src="../assets/sounds/321832__lloydevans09__classic_alarm_clock_bell.wav"></audio>
+
+    <!-- Window (Expanded) -->
+    <div id="mainContent">
+      <div id="indexBG"></div>
+      <div id="titlebar">
+        <div id="drag-region">Study-Timer</div>
+        <div id="window-buttons">
+          <button id="minimize"></button>
+          <button id="close"></button>
+        </div>
+      </div>
+      <div>
+        <h1 class="header">LOCK IN!</h1>
+      </div>
+      <div id="timerArea">
+        <div id="timer">02:00:00</div><br>
+      </div>
+      <div id="navi">
+        <button onclick="homeButton()" id="backButton">Back</button>
+        <button id="startBtn" onclick="startTimer()">Start</button>
+      </div>
+    </div>
+
+    <!-- Window (Collapsed)-->
+    <div id="collapsedContent">
+      <!-- elements are moved into this container when collapsed-->
+    </div>
+    <script>
+
+      // Timer
+      let countdown;
+      let totalSeconds = 7200; // Set to the desired time length in seconds
+      const alarm = document.getElementById('alarmSound');
+
+      function formatTime(seconds){
+        const hours = Math.floor(seconds / 3600);
+        const min = Math.floor((seconds % 3600 )/ 60);
+        const sec = seconds % 60;
+        return `${String(hours).padStart(2, '0')}:${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
+      }
+      function updateDisplay() {
+        document.getElementById("timer").textContent = formatTime(totalSeconds);
+      }
+      function startTimer() {
+        updateDisplay();
+        if (countdown) return;
+        countdown = setInterval(() => {
+          totalSeconds--;
+          updateDisplay();
+          if (totalSeconds <= 0){
+            const timerButton = document.getElementById('startBtn');
+            timerButton.textContent = 'Stop';
+            timerButton.onclick = stopAlarm;
+            alarm.play();
+            clearInterval(countdown);
+            countdown = null;
+            document.getElementById("timer").textContent = "Time's up!";
+          }
+        }, 1000);
+      }
+
+      // Stop Alarm Function
+      function stopAlarm() {
+        alarm.pause();
+        alarm.currentTime = 0;
+        clearInterval(countdown);
+        totalSeconds = 7200; // reset to original duration
+        countdown = false;
+
+        const timerButton = document.getElementById('startBtn');
+        timerButton.textContent = 'Start';
+        timerButton.onclick = startTimer;
+
+        document.getElementById('timer').textContent = '02:00:00';
+      }
+      
+      // Button's 'click' audio when interacted with
+      const buttons = document.querySelectorAll('button');
+      const audio = document.getElementById('clickSound');
+
+      buttons.forEach(buttons => {
+        buttons.addEventListener('click', () => {
+          audio.currentTime = 0;
+          audio.play();
+
+        });
+      });
+    </script>
+  </body>
+</html>
