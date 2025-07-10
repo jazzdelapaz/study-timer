@@ -2,7 +2,7 @@
 
 <h1>Study-Timer</h1>
 
-<p>Inspired by NaShallery's egg-timer desktop app using Electron's framework, I've made a desktop app that works as a timer for students and to provide them a little companion while they study, Froggy. </p>
+<p>Inspired by NaShallery's egg-timer desktop app using Electron's framework, I've made a desktop app that works as a timer for students and to provide them a little companion while they study, Froggy. This is the first desktop application I've ever coded using HTML, Js and CSS with self-made image assets and while learning how to develop an application using Electron and its resources. The Duration of this project took 2 weeks and 5 days. Though many challenges were faced, I'm glad I was able to get it up and running.</p>
 <br>
 <br>
 <br>
