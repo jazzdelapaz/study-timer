@@ -1,0 +1,202 @@
+/* Window */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family:"Born2bSportyFS";
+  src: url("../assets/fonts/Born2bSportyFS.otf") format("opentype");
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  -webkit-app-region: drag;
+}
+
+#titlebar {
+  -webkit-app-region: drag;
+  height: 32px;
+  display: flex;
+  padding: 0 10px;
+  align-items: center;
+  user-select: none;
+  margin-bottom: 25px;
+}
+
+#drag-region{
+  font-family: "Born2bSportyFS";
+  font-size: 25px;
+  color:#282334;
+  flex: 1;
+  padding-left: 10px;
+  -webkit-app-region: drag;
+}
+
+/* Buttons */
+button {
+  -webkit-app-region: no-drag;
+  transition: transform 0.1s ease;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
+}
+
+#close {
+  width: 26px;
+  height: 26px;
+  background-image: url(../assets/images/closeButton.png);
+  background-size: cover;
+  background-color: transparent;
+  border-radius: 5px;
+  border: solid 1.5px #282334;
+  padding: 0 0 0 4px;
+}
+#minimize {
+  width: 26px;
+  height: 26px;
+  background-image: url(../assets/images/minimizeButton.png);
+  background-size: cover;
+  background-color: transparent;
+  border-radius: 5px;
+  border: solid 1.5px #282334;
+}
+
+#backButton {
+  -webkit-app-region: no-drag;
+  margin-top: 15px;
+}
+
+/* Body*/
+body {
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  max-width: 38rem;
+  padding: 1rem;
+}
+
+/* BG image size smaller than actual window size(400,300) to accomodate implementing rounded corners */
+#indexBG{
+  width: 380px;
+  height: 280px;
+  background-image: url(../assets/images/background.png);
+  background-size: cover;
+  background-position: center;
+  border-radius: 15px;
+  overflow: hidden;
+  position: absolute;
+  top: 1px;
+  z-index: -1;
+}
+
+/* "What's the goal for today?" */
+h3 {
+  font-family: "Born2bSportyFS";
+  color: #8f563b;
+  font-size: 16px;
+  text-align: center;
+  padding: 5px 0 0 0;
+  margin: 0 0 0 0;
+}
+
+/* Mode Selection */
+#modeButtons{
+  position: inline;
+  margin: 25px 0 0 15px;
+}
+
+#qr, #inDepth, #lockIn {
+  width: 87px;
+  height: 54px;
+  background-image: url(../assets/images/button2t.png);
+  background-size: cover;
+  background-color: transparent;
+  border:none;
+  padding: 0;
+  margin: 0 0 0 15px;
+  font-family: "Born2bSportyFS";
+  color: #282334;
+}
+
+#startBtn, #backButton{
+  display: inline;
+  width: 49px;
+  height: 30px;
+  background-image: url(../assets/images/button2t.png);
+  background-size: cover;
+  background-color: transparent;
+  border:none;
+  padding: 0;
+  margin: auto;
+  font-family: "Born2bSportyFS";
+  color: #282334;
+  text-align: center;
+}
+
+span {
+  color: #8f563b;
+}
+
+h1 {
+  font-family: "Born2bSportyFS";
+  color: #282334;
+  font-size: 36px;
+  text-align: center;
+  padding: 20px 0 0 0;
+  margin-top: -25px;
+}
+
+.header {
+  font-family: "Born2bSportyFS";
+  color: #282334;
+  font-size: 36px;
+  text-align: center;
+}
+
+#timer {
+  font-family: "Born2bSportyFS";
+  font-size: 85px;
+  color: #D6F6E7;
+  text-align: center;
+  margin-top: -10px;
+}
+/* Timer - collapsed */
+#timer.small{
+  display: inline;
+  font-family: "Born2bSportyFS";
+  font-size: 40px;
+  color: #8f563f;
+  margin: -10px 170px 0 10px;
+}
+
+#navi {
+  display: flex;
+  justify-content: center;
+}
+
+#froggy-image{
+  display: block;
+  margin: 15px 150px 0 150px;
+}
+
+/* Main Window - Collapsed format */
+#collapsedContent.visible {
+  width: 380px;
+  height: 50px;
+  background-image: url(../assets/images/background.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 60px;
+  border-radius: 10px;
+}
